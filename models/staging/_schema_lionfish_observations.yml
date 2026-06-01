@@ -41,8 +41,10 @@ models:
       - name: ingestion_source
         description: "Source of the observation data"
         tests:
+          - not_null
           - accepted_values:
-              values: ['bulk']
+              arguments:
+                values: ['bulk']
 
   - name: stg_lionfish__incremental
     description: "Cleaned and standardised lionfish observations from the daily ADF incremental pipeline. Contains observations submitted to iNaturalist after the bulk export date."
@@ -84,8 +86,10 @@ models:
       - name: ingestion_source
         description: "Source of the observation data"
         tests:
+          - not_null
           - accepted_values:
-              values: ['incremental']
+              arguments:
+                values: ['incremental']
 
   - name: stg_lionfish__observations
     description: "Combined and deduplicated lionfish observations from both bulk and incremental sources. This is the primary staging model used by mart models. Deduplication is performed on uuid, preferring incremental data over bulk when duplicates exist."
@@ -128,4 +132,5 @@ models:
         tests:
           - not_null
           - accepted_values:
-              values: ['bulk', 'incremental']
+              arguments:
+                values: ['bulk', 'incremental']
