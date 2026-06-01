@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: LIONFISH_DB
+    schema: RAW
+    tables:
+      - name: bulk_observations
+        description: "Historical bulk export of lionfish observations from iNaturalist, exported 20260525"
+      - name: incremental_observations
+        description: "Daily incremental lionfish observations from ADF pipeline"
