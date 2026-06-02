@@ -28,10 +28,6 @@ models:
         description: "Longitude coordinate of the observation, validated between -180 and 180"
         tests:
           - not_null
-      - name: taxon_id
-        description: "Unique identifier for the observed taxon"
-        tests:
-          - not_null
       - name: taxon_name
         description: "Scientific name of the observed taxon"
         tests:
@@ -73,10 +69,6 @@ models:
         description: "Longitude coordinate of the observation, validated between -180 and 180"
         tests:
           - not_null
-      - name: taxon_id
-        description: "Unique identifier for the observed taxon"
-        tests:
-          - not_null
       - name: taxon_name
         description: "Scientific name of the observed taxon"
         tests:
@@ -90,47 +82,3 @@ models:
           - accepted_values:
               arguments:
                 values: ['incremental']
-
-  - name: stg_lionfish__observations
-    description: "Combined and deduplicated lionfish observations from both bulk and incremental sources. This is the primary staging model used by mart models. Deduplication is performed on uuid, preferring incremental data over bulk when duplicates exist."
-    columns:
-      - name: observation_id
-        description: "Unique sequential identifier for the observation"
-        tests:
-          - not_null
-      - name: uuid
-        description: "Universally unique identifier for the observation"
-        tests:
-          - not_null
-          - unique
-      - name: observed_on
-        description: "Date the observation was made"
-        tests:
-          - not_null
-      - name: country
-        description: "Country where the observation was made. Available for bulk observations only."
-      - name: latitude
-        description: "Latitude coordinate of the observation"
-        tests:
-          - not_null
-      - name: longitude
-        description: "Longitude coordinate of the observation"
-        tests:
-          - not_null
-      - name: taxon_id
-        description: "Unique identifier for the observed taxon"
-        tests:
-          - not_null
-      - name: taxon_name
-        description: "Scientific name of the observed taxon"
-        tests:
-          - not_null
-      - name: taxon_common_name
-        description: "Common name of the observed taxon"
-      - name: ingestion_source
-        description: "Source of the observation data — either bulk or incremental"
-        tests:
-          - not_null
-          - accepted_values:
-              arguments:
-                values: ['bulk', 'incremental']
