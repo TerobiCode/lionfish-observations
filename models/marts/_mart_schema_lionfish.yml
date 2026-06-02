@@ -17,8 +17,6 @@ models:
         description: "Date the observation was made"
         tests:
           - not_null
-      - name: observed_month
-        description: "Month the observation was made, truncated to first day of month"
       - name: observed_year
         description: "Year the observation was made, truncated to first day of year"
       - name: country
@@ -29,10 +27,6 @@ models:
           - not_null
       - name: longitude
         description: "Longitude coordinate of the observation"
-        tests:
-          - not_null
-      - name: taxon_id
-        description: "Unique identifier for the observed taxon"
         tests:
           - not_null
       - name: taxon_name
