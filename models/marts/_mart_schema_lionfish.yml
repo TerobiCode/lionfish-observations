@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: mart_lionfish__observations
+    description: "Core fact table of all lionfish observations globally. One row per observation. Used for map visualisations and time series analysis."
+    columns:
+      - name: observation_id
+        description: "Unique sequential identifier for the observation"
+        tests:
+          - not_null
+      - name: uuid
+        description: "Universally unique identifier for the observation"
+        tests:
+          - not_null
+          - unique
+      - name: observed_on
+        description: "Date the observation was made"
+        tests:
+          - not_null
+      - name: observed_year
+        description: "Year the observation was made, truncated to first day of year"
+      - name: country
+        description: "Country where the observation was made. Available for bulk observations only."
+      - name: latitude
+        description: "Latitude coordinate of the observation"
+        tests:
+          - not_null
+      - name: longitude
+        description: "Longitude coordinate of the observation"
+        tests:
+          - not_null
+      - name: taxon_name
+        description: "Scientific name of the observed taxon"
+        tests:
+          - not_null
+      - name: taxon_common_name
+        description: "Common name of the observed taxon"
+      - name: ingestion_source
+        description: "Source of the observation — bulk or incremental"
+        tests:
+          - not_null

@@ -7,5 +7,6 @@ sources:
     tables:
       - name: bulk_observations
         description: "Historical bulk export of lionfish observations from iNaturalist, exported 20260525"
+
       - name: incremental_observations
         description: "Daily incremental lionfish observations from ADF pipeline"
