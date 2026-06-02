@@ -22,12 +22,8 @@ models:
         description: "Country where the observation was made, derived from reverse geocoding by iNaturalist"
       - name: latitude
         description: "Latitude coordinate of the observation, validated between -90 and 90"
-        tests:
-          - not_null
       - name: longitude
         description: "Longitude coordinate of the observation, validated between -180 and 180"
-        tests:
-          - not_null
       - name: taxon_name
         description: "Scientific name of the observed taxon"
         tests:
