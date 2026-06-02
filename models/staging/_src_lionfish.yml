@@ -10,3 +10,12 @@ sources:
 
       - name: incremental_observations
         description: "Daily incremental lionfish observations from ADF pipeline"
+        config:
+          freshness:
+            warn_after:
+              count: 1
+              period: day
+            error_after:
+              count: 2
+              period: day
+          loaded_at_field: ingestion_date
