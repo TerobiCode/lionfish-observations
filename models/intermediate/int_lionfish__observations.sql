@@ -15,7 +15,7 @@ combined as (
 validated as (
     select *
     from combined
-    where common_name like '%lionfish'
+    where common_name ilike '%lionfish%'
       and quality_grade = 'research'
       and captive = false
       and latitude between -90 and 90
