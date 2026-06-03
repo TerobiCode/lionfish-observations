@@ -24,11 +24,11 @@ models:
         description: "Latitude coordinate of the observation, validated between -90 and 90"
       - name: longitude
         description: "Longitude coordinate of the observation, validated between -180 and 180"
-      - name: taxon_name
+      - name: latin_name
         description: "Scientific name of the observed taxon"
         tests:
           - not_null
-      - name: taxon_common_name
+      - name: common_name
         description: "Common name of the observed taxon"
       - name: ingestion_source
         description: "Source of the observation data"
@@ -65,11 +65,11 @@ models:
         description: "Longitude coordinate of the observation, validated between -180 and 180"
         tests:
           - not_null
-      - name: taxon_name
+      - name: latin_name
         description: "Scientific name of the observed taxon"
         tests:
           - not_null
-      - name: taxon_common_name
+      - name: common_name
         description: "Common name of the observed taxon"
       - name: ingestion_source
         description: "Source of the observation data"
