@@ -11,8 +11,8 @@ final as (
         country,
         latitude,
         longitude,
-        taxon_name,
-        taxon_common_name,
+        latin_name,
+        common_name,
         ingestion_source
     from intermediate
 )

@@ -18,8 +18,8 @@ renamed as (
         null::varchar                                           as country,
         split_part((observation:location)::varchar, ',', 1)::float as latitude,
         split_part((observation:location)::varchar, ',', 2)::float as longitude,
-        (observation:taxon.name)::varchar                       as taxon_name,
-        (observation:taxon.preferred_common_name)::varchar      as taxon_common_name,
+        (observation:taxon.name)::varchar                       as latin_name,
+        (observation:taxon.preferred_common_name)::varchar      as common_name,
         (observation:quality_grade)::varchar                    as quality_grade,
         (observation:captive)::boolean                          as captive,
         'incremental'::varchar                                  as ingestion_source
