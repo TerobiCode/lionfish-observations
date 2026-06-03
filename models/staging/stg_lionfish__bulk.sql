@@ -10,8 +10,8 @@ renamed as (
         place_country_name::varchar as country,
         latitude::float             as latitude,
         longitude::float            as longitude,
-        scientific_name::varchar    as taxon_name,
-        common_name::varchar        as taxon_common_name,
+        scientific_name::varchar    as latin_name,
+        common_name::varchar        as common_name,
         quality_grade::varchar      as quality_grade,
         captive_cultivated::boolean as captive,
         'bulk'::varchar             as ingestion_source

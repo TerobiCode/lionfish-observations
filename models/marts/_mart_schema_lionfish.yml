@@ -29,12 +29,12 @@ models:
         description: "Longitude coordinate of the observation"
         tests:
           - not_null
-      - name: taxon_name
-        description: "Scientific name of the observed taxon"
+      - name: latin_name
+        description: "Scientific name of the observed species"
         tests:
           - not_null
-      - name: taxon_common_name
-        description: "Common name of the observed taxon"
+      - name: common_name
+        description: "Common name of the observed species"
       - name: ingestion_source
         description: "Source of the observation — bulk or incremental"
         tests:
