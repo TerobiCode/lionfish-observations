@@ -1,6 +1,6 @@
 # Lionfish Pipeline 🦁🐠
 
-A data pipeline tracking the global spread of invasive lionfish (*Pterois* genus) using daily citizen science observations from iNaturalist.
+A data pipeline tracking the global spread of lionfish (*Pterois* genus) using daily citizen science observations from iNaturalist.
 
 ## Project Overview
 
@@ -12,11 +12,11 @@ iNaturalist v2 API
 
  ↓ Azure Data Factory (daily at 6am)
  
-Azure Blob Storage — raw JSON (bronze layer)
+Azure Blob Storage — raw JSON (raw layer)
 
  ↓ Snowflake Task (daily at 7am)
  
-Snowflake RAW schema (bronze layer)
+Snowflake RAW schema (raw layer)
 
  ↓ dbt build (daily at 8am)
  
@@ -42,7 +42,7 @@ Tableau (visualisation)
 
 ## Data Sources
 
-**Bulk export** — historical CSV export of all research-grade *Pterois* observations from iNaturalist (18,372 observations, exported May 2026).
+**Bulk export** — historical CSV export of all research-grade *Pterois* observations from iNaturalist (18,372 observations, exported 25 May 2026).
 
 **Daily incremental** — automated daily ingestion via ADF fetching new research-grade observations submitted to iNaturalist each day.
 
@@ -72,6 +72,7 @@ dbt tests are configured across all models including:
 - `not_null` on critical fields (observation_id, uuid, observed_on, latin_name)
 - `unique` on uuid across all models
 - `accepted_values` on ingestion_source
+- Source freshness verifying new data arrives within 2 days (1 day warning)
 
 ## Automated Pipeline Schedule
 
